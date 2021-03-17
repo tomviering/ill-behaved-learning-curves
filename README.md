@@ -34,7 +34,16 @@ They are automatically placed in the folders 'results_fast' and 'results_long'.
 
 A simplified script that shows all ill-behaved learning curves (Fig 3) and the surface plot (Fig 2) with minimal styling. Requires all result files. 
 
-![Learning curve vehicles realizeable](https://raw.githubusercontent.com/tomviering/NuclearDiscrepancy/master/learning_curve_vehicles_realizeable.png)
+![1_phasetransition](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/1_phasetransition.png)
+![2_peaking](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/2_peaking.png)
+![2_peaking_surface](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/2_peaking_surface.png)
+![3_dipping](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/3_dipping.png)
+![4_monotonicity_squared](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/4_monotonicity_squared.png)
+![4_monotonicity_absolute](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/4_monotonicity_absolute.png)
+![5_GP_regression](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/5_GP_regression.png)
+![6_bayesian_regression](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/6_bayesian_regression.png)
+![7_perfect_prior](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/7_perfect_prior.png)
+![8_making_monotone](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/8_making_monotone.png)
 
 ## figure1_crossing_curves.m
 
