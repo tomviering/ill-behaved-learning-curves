@@ -1,4 +1,4 @@
-# Making Learners (More) Monotone
+# The Shape of Learning Curves
 This repository contains the code to reproduce all the figures in our paper:
 
 The Shape of Learning Curves: a Review
