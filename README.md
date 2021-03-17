@@ -19,7 +19,9 @@ git clone https://github.com/tomviering/ill-behaved-learning-curves.git
 download_dependencies('all')
 ``` 
 to download all additional dependencies for all experiments and the author provided results. 
+
 3. Optional: download and extract [export_fig](https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig) in the directory 'export_fig' (only required for exporting figures).
+
 4. Optional: download and extract [panel-2.14](https://nl.mathworks.com/matlabcentral/fileexchange/20003-panel) in the directory 'panel-2.14' (for pretty version of Fig 3). 
 
 # Running the experiments
