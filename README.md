@@ -5,7 +5,7 @@ The Shape of Learning Curves: a Review
 
 T J Viering, M Loog, 
 
-arxiv 2021
+unpublished
 
 If you found this code useful in your work, please cite our paper.
 
