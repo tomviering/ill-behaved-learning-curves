@@ -11,7 +11,9 @@ If you found this code useful in your work, please cite our paper.
 
 # Installation
 1. Clone repository to your local PC: `git clone https://github.com/tomviering/ill-behaved-learning-curves.git`.
-2. Optional: navigate to the root directory of the project and execute `download_dependencies('all')` to download all additional dependencies for all experiments and the author provided results. 
+2. Optional: navigate to the root directory of the project and execute 
+```download_dependencies('all')``` 
+to download all additional dependencies for all experiments and the author provided results. 
 3. Optional: download and extract [export_fig](https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig) in the directory 'export_fig' (only required for exporting figures).
 4. Optional: download and extract [panel-2.14](https://nl.mathworks.com/matlabcentral/fileexchange/20003-panel) in the directory 'panel-2.14' (for pretty version of Fig 3). 
 
@@ -22,17 +24,20 @@ are sometimes time consuming because many repitions are required to obtain smoot
 Therefore, we have prepared two versions of all the experiments:
 
 1. run_experiments_fast.m - total running time about 10 minutes. all the results are saved to the folder 'results_fast'.
-2. run_experiments_long.m - total running time about 6 hours. all the results are saved to the folder 'results_long'.
+2. run_experiments_long.m - total running time about *6 hours*. all the results are saved to the folder 'results_long'.
 
 These scripts also generate the (bare bones) learning curve figures.
-We have also performed these computations for you and we provide them with this repository. To download the results, execute `download_dependencies('author_results')`. 
+We have also performed these computations for you and we provide them with this repository. To download the results, execute 
+```
+download_dependencies('author_results')
+```
 They are automatically placed in the folders 'results_fast' and 'results_long'. 
 
 # The plots
 
 ## plots_learning_curves.m 
 
-A simplified script that shows all ill-behaved learning curves (Fig 3) and the surface plot (Fig 2) with minimal styling. Requires all result files. 
+A simplified script that shows all ill-behaved learning curves (Fig 3) and the surface plot (Fig 2) with minimal styling. Requires all result files in the folders 'results_fast' or 'results_long'. 
 
 ![1_phasetransition](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/1_phasetransition.png)
 ![2_peaking](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/2_peaking.png)
