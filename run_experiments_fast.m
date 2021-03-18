@@ -33,19 +33,23 @@ ylabel('error rate');
 
 
 
-%% 2. peaking (1 min)
+%% 2. peaking (5 min)
 
-nrep = 10; % 1000 used in paper
+nrep = 50; % 1000 used in paper
 n = 81; % per class
-compute_peaking_tom(nrep, n);
+compute_peaking(nrep, n);
 
 %% 2. peaking - plot
 
-load('2_peaking.mat','error');
+load('2_peaking.mat','error','error_exact');
 E = squeeze(mean(error));
+E2 = squeeze(mean(error_exact));
 learning_curve = E(80,:);
+learning_curve2 = E2(80,:);
 figure;
 plot(learning_curve);
+hold on;
+plot(learning_curve2);
 xlabel('n per class');
 ylabel('error rate');
 
@@ -55,7 +59,6 @@ load('2_peaking.mat','error');
 E = squeeze(mean(error));
 
 figure;
-level_list = [0.0155 0.0500 0.1000 0.1500 0.2000 0.2500 0.3000 0.3500];
 
 % values for the plot
 X = repmat(1:size(E,2),size(E,1),1)*2;
@@ -64,7 +67,7 @@ x_learning_curve = [1:size(E,2)]*2;
 x_feature_curve = 1:size(E,1);
 
 % plot it
-[c,h] = contourf(X,Y,E,level_list);
+[c,h] = contourf(X,Y,E2);
 
 % make-up
 xlabel('n')

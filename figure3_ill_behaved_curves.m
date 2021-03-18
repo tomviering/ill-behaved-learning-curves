@@ -23,6 +23,7 @@ addpath('7_perfect_prior');
 addpath('8_making_monotone');
 
 addpath('helpers'); 
+addpath('RiskMonotonicity-master');
 if use_panel
     addpath('panel-2.14'); 
 end

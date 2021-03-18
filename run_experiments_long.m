@@ -55,7 +55,7 @@ load('2_peaking.mat','error');
 E = squeeze(mean(error));
 
 figure;
-level_list = [0.0155 0.0500 0.1000 0.1500 0.2000 0.2500 0.3000 0.3500];
+%level_list = [0.0155 0.0500 0.1000 0.1500 0.2000 0.2500 0.3000 0.3500];
 
 % values for the plot
 X = repmat(1:size(E,2),size(E,1),1)*2;
@@ -64,7 +64,7 @@ x_learning_curve = [1:size(E,2)]*2;
 x_feature_curve = 1:size(E,1);
 
 % plot it
-[c,h] = contourf(X,Y,E,level_list);
+[c,h] = contourf(X,Y,E);
 
 % make-up
 xlabel('n')

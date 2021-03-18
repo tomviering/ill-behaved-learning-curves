@@ -7,11 +7,11 @@
 close all;
 clear all;
 
-rmpath('results_fast'); % little repitions: noisy learning curves
-addpath('results_long'); % many repitions: smooth learning curves
+addpath('results_fast'); % little repitions: noisy learning curves
+rmpath('results_long'); % many repitions: smooth learning curves
 
-load('2_peaking.mat','error');
-E = squeeze(mean(error));
+load('2_peaking.mat','error','error_exact');
+E = squeeze(mean(error_exact));
 % E is the error matrix that adheres to
 % E(ind_d,ind_n), where ind_d = d, and ind_n*2 = n
 
@@ -35,7 +35,7 @@ y_ticks_routes = 20:20:100;
 %% plot the contour
 
 figure;
-level_list = [0.0155 0.0500 0.1000 0.1500 0.2000 0.2500 0.3000 0.3500];
+%level_list = [0.0155 0.0500 0.1000 0.1500 0.2000 0.2500 0.3000 0.3500];
 
 % values for the plot
 X = repmat(1:size(E,2),size(E,1),1)*2;
@@ -45,7 +45,7 @@ x_feature_curve = 1:size(E,1);
 
 % plot it
 plt_main = subplot(2,2,1);
-c = contourf(X,Y,E,level_list);
+c = contourf(X,Y,E);
 
 % make-up
 xlabel('n')

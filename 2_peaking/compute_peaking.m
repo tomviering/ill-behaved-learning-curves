@@ -1,4 +1,4 @@
-function compute_peaking_tom(REP, N_per_class)
+function compute_peaking(REP, N_per_class)
 
 global result_path;
 
@@ -8,7 +8,8 @@ d_original = 100;
 
 N_test_per_class = 1000;
 
-distance = 6; % distance between the two standard Gaussians their means
+distance = 1.5;
+% distance = 6; % distance between the two standard Gaussians their means
 distance_half = distance/2;
 distance_per_dim = distance_half/sqrt(d_original);
 
@@ -20,6 +21,7 @@ Xtest_pos = randn(N_test_per_class,d_original) - distance_per_dim;
 % check_distance = sqrt(sum((mean(X1)-mean(X2)).^2));
 
 error = nan(REP,d_original,N_per_class);
+error_exact = nan(REP,d_original,N_per_class);
 
 tic
 for rep = 1:REP
@@ -41,7 +43,7 @@ for rep = 1:REP
             error_temp = (sum(Ytest_neg_pred >= 0) + sum(Ytest_pos_pred <= 0))/(N_test_per_class * 2);
             
             error(rep,d,n) = error_temp;
-            %accRES(n,d) = accRES(n,d) + .5 - .5*erf((deltaM(1:d)*a)/(2*sqrt(2)*norm(a)));
+            error_exact(rep,d,n) = 0.5 + erf((ones(1,d)*distance_per_dim*w)/(2*sqrt(2)*norm(w)));
             
         end
         
@@ -50,7 +52,7 @@ for rep = 1:REP
 end
 
 timetaken = toc;
-save(sprintf('%s/2_peaking.mat',result_path),'error','timetaken');
+save(sprintf('%s/2_peaking.mat',result_path),'error','error_exact','timetaken');
 
 
 
