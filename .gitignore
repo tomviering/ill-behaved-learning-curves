@@ -1,1 +1,10 @@
 *.asv
+*.zip
+export_fig/
+gpml-matlab-v4.2-2018-06-11/
+monotone-master/
+panel-2.14/
+prtools/
+results_fast/
+results_long/
+RiskMonotonicity-master/
