@@ -19,7 +19,7 @@ Xtest_pos = randn(N_test_per_class,d_original) - distance_per_dim;
 check_distance = sqrt(sum((mean(Xtest_neg)-mean(Xtest_pos)).^2));
 
 error = nan(REP,d_original,N_per_class);
-% error_exact = nan(REP,d_original,N_per_class);
+error_exact = nan(REP,d_original,N_per_class);
 
 tic
 for rep = 1:REP
@@ -41,7 +41,7 @@ for rep = 1:REP
             error_temp = (sum(Ytest_neg_pred >= 0) + sum(Ytest_pos_pred <= 0))/(N_test_per_class * 2);
             
             error(rep,d,n) = error_temp;
-            % error_exact(rep,d,n) = 0.5 + erf((ones(1,d)*distance_per_dim*w)/(2*sqrt(2)*norm(w)));
+            error_exact(rep,d,n) = 0.5 + 0.5*erf((ones(1,d)*distance_per_dim*w)/(sqrt(2)*norm(w)));
             
         end
         
@@ -50,7 +50,7 @@ for rep = 1:REP
 end
 
 timetaken = toc;
-save(sprintf('%s/2_peaking.mat',result_path),'error','timetaken');
+save(sprintf('%s/2_peaking.mat',result_path),'error','error_exact','timetaken');
 
 
 
