@@ -6,10 +6,10 @@
 close all;
 clear all;
 
-save_to_pdf = 1; % requires export_fig to be installed in export_fig
+save_to_pdf = 0; % requires export_fig to be installed in export_fig
 % https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
 
-use_panel = 1; % makes the fancy plot as per the paper
+use_panel = 0; % makes the fancy plot as per the paper
 % requires panel to be installed in directory panel-2.14
 % you can find it at 
 % https://nl.mathworks.com/matlabcentral/fileexchange/20003-panel

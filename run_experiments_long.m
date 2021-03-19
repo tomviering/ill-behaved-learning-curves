@@ -137,6 +137,7 @@ ylabel('absolute loss');
 title('4. monotonicity');
 
 
+
 %% 5. GP regression (1 hour)
 
 download_dependencies('gpml')

@@ -7,7 +7,7 @@
 close all;
 clear all;
 
-save_to_pdf = 1; % requires export_fig to be installed in export_fig
+save_to_pdf = 0; % requires export_fig to be installed in export_fig
 % https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
 
 %%

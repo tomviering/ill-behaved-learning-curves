@@ -80,6 +80,8 @@ xlabel('n')
 ylabel('d')
 title('2. peaking surface plot');
 
+
+
 %% 3. dipping (2 min)
 % trains a nearest-mean classifier on the distribution of figure 4.
 

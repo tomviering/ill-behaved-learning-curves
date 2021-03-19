@@ -5,7 +5,7 @@ use_results_long = 1; % this script requires all result files
 % long = 0: little repitions, noisy learning curves (results_fast)
 % long = 1: many repitions: smooth learning curves (results_long)
 
-save_to_png = 1; % requires export_fig to be installed in export_fig
+save_to_png = 0; % requires export_fig to be installed in export_fig
 % https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
 
 %% Set result directory
