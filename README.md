@@ -9,6 +9,8 @@ unpublished
 
 If you found this code useful in your work, please cite our paper.
 
+This code has been tested with Matlab (R2019b).
+
 # Installation
 1. Clone repository to your local PC: 
 ```
