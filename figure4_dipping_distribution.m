@@ -4,7 +4,10 @@
 close all;
 clear all;
 
-save_to_pdf = 0;
+save_to_pdf = 1; % requires export_fig to be installed in export_fig
+% https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
+
+%% 
 
 subplot(1,2,1);
 
@@ -50,7 +53,7 @@ set(leg,'position',[0.5047    0.2586    0.2089    0.6682]);
 
 if save_to_pdf
     addpath('export_fig');
-    export_fig figure4.pdf;
+    export_fig figures/figure4.pdf;
 end
 
 

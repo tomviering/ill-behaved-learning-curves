@@ -1,5 +1,18 @@
+% This script runs all experiments and saves the results to disk.
+% It also shows some simple plots to visualize the results
+% NOTE: this script takes only 10 min to run, but the results
+% are a bit noisy, because little repitions are used
 close all;
 clear all;
+
+% each cell indicates the computation time (10 sec, 5 min, etc.)
+addpath('results_fast');
+rmpath('results_slow');
+global result_path; % this global controls where the compute functions (compute_phasetransition, compute_peaking, etc.)
+% store the result files. 
+result_path = 'results_fast';
+
+%% paths
 
 addpath('1_phasetransition');
 addpath('2_peaking');
@@ -9,11 +22,6 @@ addpath('5_GP_regression');
 addpath('6_bayesian_regression');
 addpath('7_perfect_prior');
 addpath('8_making_monotone');
-
-addpath('results_fast');
-rmpath('results_slow');
-global result_path;
-result_path = 'results_fast';
 
 %% 1. phase transition (10 sec)
 
@@ -30,6 +38,7 @@ load('1_phasetransition.mat','E');
 plot(E.xvalues, E.error)
 xlabel('n');
 ylabel('error rate');
+title('1. phase transition');
 
 
 
@@ -41,17 +50,14 @@ compute_peaking(nrep, n);
 
 %% 2. peaking - plot
 
-load('2_peaking.mat','error','error_exact');
+load('2_peaking.mat','error');
 E = squeeze(mean(error));
-E2 = squeeze(mean(error_exact));
-learning_curve = E(80,:);
-learning_curve2 = E2(80,:);
+learning_curve = E(100,:);
 figure;
 plot(learning_curve);
-hold on;
-plot(learning_curve2);
 xlabel('n per class');
 ylabel('error rate');
+title('2. peaking learning curve');
 
 %% 2. peaking - surfaceplot
 
@@ -67,11 +73,12 @@ x_learning_curve = [1:size(E,2)]*2;
 x_feature_curve = 1:size(E,1);
 
 % plot it
-[c,h] = contourf(X,Y,E2);
+[c,h] = contourf(X,Y,E);
 
 % make-up
 xlabel('n')
 ylabel('d')
+title('2. peaking surface plot');
 
 %% 3. dipping (2 min)
 % trains a nearest-mean classifier on the distribution of figure 4.
@@ -89,6 +96,7 @@ figure;
 plot(log10(n),mean(error));
 xlabel('log(n)');
 ylabel('error rate');
+title('3. dipping');
 
 
 
@@ -117,12 +125,14 @@ figure;
 plot(Rsq);
 xlabel('n');
 ylabel('square loss');
+title('4. monotonicity');
 
 %% 4. monotonicity - absolute loss plot
 figure;
 plot(Rabs);
 xlabel('n');
 ylabel('absolute loss');
+title('4. monotonicity');
 
 
 
@@ -140,6 +150,7 @@ figure;
 plot(log10(n_trn_try),mean(loss))
 xlabel('log(n)');
 ylabel('squared loss');
+title('5. GP regression');
 
 
 
@@ -154,6 +165,9 @@ compute_bayesian_regression(nrep, n);
 load('6_bayesian_regression.mat','square_risk');
 figure;
 plot(mean(square_risk,2)) 
+xlabel('n');
+ylabel('squared loss');
+title('6. Bayesian regression');
 
 
 
@@ -170,6 +184,7 @@ figure;
 plot(mean(NLL));
 xlabel('n');
 ylabel('negative log likelyhood');
+title('7. perfect prior');
 
 
 
@@ -185,5 +200,8 @@ download_dependencies('makingmt')
 
 figure;
 plot_making_monotone()
+xlabel('n');
+ylabel('error rate');
+title('8. making monotone');
 
 

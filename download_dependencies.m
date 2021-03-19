@@ -6,16 +6,30 @@ function download_dependencies(to_install)
 % 'riskmt': risk monotonicity  - https://github.com/tomviering/RiskMonotonicity/ (20kb)
 % 'gpml': gaussian process toolbox - http://gaussianprocess.org/gpml/ (3mb) 
 % 'makingmt': making monotone IDA - https://github.com/tomviering/monotone/ (20mb)
-% 'all'
+% 'author_results': downloads the author results for all experiments (80mb)
+%
+% 'all': downloads everything
 
-if (strcmp(to_install,'prtools'))&&(exist('prtools','dir'))
+install_all = strcmp(to_install,'all');
+install_prtools = strcmp(to_install,'prtools') || install_all;
+install_riskmt = (strcmp(to_install,'riskmt')) || install_all;
+install_gpml = (strcmp(to_install,'gpml')) || install_all;
+install_makingmt = (strcmp(to_install,'makingmt')) || install_all;
+install_author_results = (strcmp(to_install,'author_results')) || install_all;
+
+prtools_installed = exist('prtools','dir');
+riskmt_installed = exist('RiskMonotonicity-master','dir');
+gpml_installed = (exist('gpml-matlab-v4.2-2018-06-11','dir'));
+makingmt_installed = (exist('monotone-master','dir'));
+author_results_installed = exist('results_fast','dir') && exist('results_long','dir');
+
+if (install_prtools)&&(prtools_installed)
     fprintf('prtools already downloaded and extracted.\n');
     addpath('prtools');
     fprintf('prtools added to path.\n');
-    return;
 end
 
-if (strcmp(to_install,'prtools'))||(strcmp(to_install,'all'))
+if (install_prtools)&&(~prtools_installed)
     fprintf('downloading and extracting prtools....\n');
     
     url_prtools = 'http://prtools.tudelft.nl/files/prtools.zip';
@@ -32,14 +46,13 @@ if (strcmp(to_install,'prtools'))||(strcmp(to_install,'all'))
 end
 
 
-if (strcmp(to_install,'riskmt'))&&(exist('RiskMonotonicity-master','dir'))
+if install_riskmt&&riskmt_installed
     fprintf('riskmt already downloaded and extracted.\n');
     addpath('RiskMonotonicity-master');
     fprintf('riskmt added to path.\n');
-    return;
 end
 
-if (strcmp(to_install,'riskmt'))||(strcmp(to_install,'all'))
+if install_riskmt&&~riskmt_installed
     fprintf('downloading and extracting riskmt...\n');
     
     url_riskmt = 'https://github.com/tomviering/RiskMonotonicity/archive/master.zip';
@@ -55,15 +68,14 @@ if (strcmp(to_install,'riskmt'))||(strcmp(to_install,'all'))
 end
 
 
-if (strcmp(to_install,'gpml'))&&(exist('gpml-matlab-v4.2-2018-06-11','dir'))
+if install_gpml&&gpml_installed
     fprintf('gpml already downloaded and extracted.\n');
     addpath('gpml-matlab-v4.2-2018-06-11');
     fprintf('gpml added to path.\n');
     startup;
-    return;
 end
 
-if (strcmp(to_install,'gpml'))||(strcmp(to_install,'all'))
+if install_gpml&&~gpml_installed
     fprintf('downloading and extracting gpml...\n');
     
     url_gpml = 'http://gaussianprocess.org/gpml/code/matlab/release/gpml-matlab-v4.2-2018-06-11.zip';
@@ -78,14 +90,13 @@ if (strcmp(to_install,'gpml'))||(strcmp(to_install,'all'))
     startup;
 end
 
-if (strcmp(to_install,'makingmt'))&&(exist('monotone-master','dir'))
+if install_makingmt&&makingmt_installed
     fprintf('makingmt already downloaded and extracted.\n');
     addpath('monotone-master');
     fprintf('makingmt added to path.\n');
-    return;
 end
 
-if (strcmp(to_install,'makingmt'))||(strcmp(to_install,'all'))
+if install_makingmt&&~makingmt_installed
     fprintf('downloading and extracting makingmt...\n');
 
     url_makingmt = 'https://github.com/tomviering/monotone/archive/master.zip';
@@ -107,4 +118,23 @@ if (strcmp(to_install,'makingmt'))||(strcmp(to_install,'all'))
     fprintf('done');
 end
 
+if install_author_results&&~author_results_installed
+    fprintf('downloading and extracting author results...\n');
+    
+    url_author = 'http://tomviering.nl/survey/author_results.zip';
+    fn_author = 'author_results.zip';
+    
+    websave(fn_author,url_author);
+    
+    unzip(fn_author);
+    delete(fn_author);
+end
+
+if install_author_results&&author_results_installed
+    fprintf('author results directory already exists\n');
+    fprintf('assuming they are already installed, skipping...\n');
+    
+end
+    
+    
 

@@ -2,16 +2,29 @@
 % This code produces the surfaceplot with the feature curves and learning
 % curves. 
 
-%% Init and get data
-
 close all;
 clear all;
 
-addpath('results_fast'); % little repitions: noisy learning curves
-rmpath('results_long'); % many repitions: smooth learning curves
+save_to_pdf = 1; % requires export_fig to be installed in export_fig
+% https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
 
-load('2_peaking.mat','error','error_exact');
-E = squeeze(mean(error_exact));
+use_results_long = 1; % this script requires the results file 2_peaking.mat
+% long = 0: little repitions, noisy learning curves (results_fast)
+% long = 1: many repitions: smooth learning curves (results_long)
+
+%% Init and get data
+
+if use_results_long
+    rmpath('results_fast'); 
+    addpath('results_long'); 
+else
+    addpath('results_fast'); 
+    rmpath('results_long');  
+end
+
+load('2_peaking.mat','error');
+%load('2_peaking.mat','error','error_exact');
+E = squeeze(mean(error));
 % E is the error matrix that adheres to
 % E(ind_d,ind_n), where ind_d = d, and ind_n*2 = n
 
@@ -20,7 +33,7 @@ E = squeeze(mean(error_exact));
 lw = 2; % linewidth
 
 % learning curve
-d_learning_curve = 80;
+d_learning_curve = 70;
 
 % feature curve
 ind_feature_curve = 25;
@@ -36,6 +49,7 @@ y_ticks_routes = 20:20:100;
 
 figure;
 %level_list = [0.0155 0.0500 0.1000 0.1500 0.2000 0.2500 0.3000 0.3500];
+level_list = [0 0.0500 0.1000 0.1500 0.2000 0.2500 0.3000, 0.3500];
 
 % values for the plot
 X = repmat(1:size(E,2),size(E,1),1)*2;
@@ -45,7 +59,7 @@ x_feature_curve = 1:size(E,1);
 
 % plot it
 plt_main = subplot(2,2,1);
-c = contourf(X,Y,E);
+[c,h_cont] = contourf(X,Y,E,level_list);
 
 % make-up
 xlabel('n')
@@ -110,7 +124,7 @@ title('feature curve')
 legend([h_optfc,h_fc],'optimal n',sprintf('n = %d',n_feature_curve))
 set(gca,'Box','off')
 set(gca,'YTick',y_ticks)
-htxt = text(0.45,80,'Double Descent');
+htxt = text(0.4,80,'Double Descent');
 set(htxt,'Rotation',-90);
 
 %% plot curve routes (bottom right)
@@ -157,5 +171,10 @@ w = 600;
 h = w*1.3;
 set(gcf,'Position',[400,100,400+w,100+h]);
 
+%% save to pdf
 
+if (save_to_pdf == 1)
+    addpath('export_fig');
+    export_fig figures/figure2.pdf
+end
 

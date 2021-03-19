@@ -6,10 +6,27 @@
 close all;
 clear all;
 
-addpath('results_long'); % many repitions: smooth learning curves
-rmpath('results_fast'); % little repitions: noisy learning curves
-save_to_pdf = 0;
-use_panel = 1;
+save_to_pdf = 1; % requires export_fig to be installed in export_fig
+% https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
+
+use_panel = 1; % makes the fancy plot as per the paper
+% requires panel to be installed in directory panel-2.14
+% you can find it at 
+% https://nl.mathworks.com/matlabcentral/fileexchange/20003-panel
+
+use_results_long = 1; % this script requires all result files
+% long = 0: little repitions, noisy learning curves (results_fast)
+% long = 1: many repitions: smooth learning curves (results_long)
+
+%% Set result directory
+
+if use_results_long
+    rmpath('results_fast'); 
+    addpath('results_long'); 
+else
+    addpath('results_fast'); 
+    rmpath('results_long');  
+end
 
 %% Add required scripts to path
 
@@ -23,12 +40,12 @@ addpath('7_perfect_prior');
 addpath('8_making_monotone');
 
 addpath('helpers'); 
-addpath('RiskMonotonicity-master');
+
 if use_panel
     addpath('panel-2.14'); 
 end
 
-%%
+%% start fancy plot
 figure;
 
 numrow = 4; 
@@ -255,5 +272,5 @@ set(gcf,'Children',flipud(c));
 %%
 if save_to_pdf 
     addpath('export_fig');
-    export_fig figure4.pdf
+    export_fig figures/figure3.pdf
 end
