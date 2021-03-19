@@ -8,3 +8,5 @@ prtools/
 results_fast/
 results_long/
 RiskMonotonicity-master/
+figures/*.pdf
+figures/*.png
