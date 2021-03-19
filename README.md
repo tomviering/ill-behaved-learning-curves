@@ -69,7 +69,7 @@ The pretty version of the surface plot of Figure 2, requires the result file `2_
 
 ## figure3_ill_behaved_curves.m 
 
-The pretty version of all ill-behaved learning curves of Figure 3.
+The pretty version of all ill-behaved learning curves of Figure 3, requires all result files.
 
 ## figure4_dipping_distribution 
 
