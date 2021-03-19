@@ -46,7 +46,7 @@ They are automatically placed in the folders 'results_fast' and 'results_long'.
 
 ## all_plots_simple.m 
 
-A simplified script that shows all ill-behaved learning curves (Fig 3) and the surface plot (Fig 2) with minimal styling. Requires all result files in the folders 'results_fast' or 'results_long'. 
+A simplified script that shows all ill-behaved learning curves (Fig 3) and the surface plot (Fig 2) with minimal styling. Requires all result files in the folders 'results_fast' or 'results_long'. Example output below. 
 
 ![1_phasetransition](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/1_phasetransition.png)
 ![2_peaking](https://raw.githubusercontent.com/tomviering/ill-behaved-learning-curves/main/figures/2_peaking.png)
