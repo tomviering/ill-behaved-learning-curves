@@ -14,7 +14,7 @@ If you found this code useful in your work, please cite our paper.
 ```
 git clone https://github.com/tomviering/ill-behaved-learning-curves.git
 ```
-2. **Optional:** navigate to the root directory of the project and execute 
+2. **Optional:** navigate to the root directory of the project and execute in Matlab
 ```
 download_dependencies('all')
 ``` 
@@ -33,8 +33,8 @@ Therefore, we have prepared two versions of all the experiments:
 1. run_experiments_fast.m - total running time about 10 minutes. all the results are saved to the folder 'results_fast'.
 2. run_experiments_long.m - total running time about **6 hours**. all the results are saved to the folder 'results_long'.
 
-These scripts also generate the (bare bones) learning curve figures.
-We have also performed these computations for you and we provide them with this repository. To download the results, execute 
+Besides saving the results to disk, these scripts also make all plots.
+We have performed these computations for you and we provide them with this repository. To download the results, execute 
 ```
 download_dependencies('author_results')
 ```
@@ -42,7 +42,7 @@ They are automatically placed in the folders 'results_fast' and 'results_long'.
 
 # The plots
 
-## plots_learning_curves.m 
+## all_plots_simple.m 
 
 A simplified script that shows all ill-behaved learning curves (Fig 3) and the surface plot (Fig 2) with minimal styling. Requires all result files in the folders 'results_fast' or 'results_long'. 
 
