@@ -16,11 +16,11 @@ This code has been tested with Matlab (R2019b).
 ```
 git clone https://github.com/tomviering/ill-behaved-learning-curves.git
 ```
-2. **Optional:** navigate to the root directory of the project and execute in Matlab
+2. Navigate to the root directory of the project and execute in Matlab
 ```
 download_dependencies('all')
 ``` 
-to download all additional dependencies for all experiments and the author provided results. 
+to download all additional dependencies for all experiments and to download the author provided results. 
 
 3. **Optional:** download and extract [export_fig](https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig) in the directory 'export_fig' (only required for exporting figures).
 
