@@ -6,6 +6,7 @@ close all;
 clear all;
 
 % each cell indicates the computation time (10 sec, 5 min, etc.)
+mkdir('results_fast');
 addpath('results_fast');
 rmpath('results_slow');
 global result_path; % this global controls where the compute functions (compute_phasetransition, compute_peaking, etc.)
