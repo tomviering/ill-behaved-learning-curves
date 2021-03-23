@@ -4,8 +4,7 @@
 close all;
 clear all;
 
-save_to_pdf = 0; % requires export_fig to be installed in export_fig
-% https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
+save_to_pdf = 1; % saves PDF to figures dir
 
 %% 
 
@@ -52,7 +51,7 @@ set(gcf,'position',[680   715   560   110]);
 set(leg,'position',[0.5047    0.2586    0.2089    0.6682]);
 
 if save_to_pdf
-    addpath('export_fig');
+    download_dependencies('export_fig');
     export_fig figures/figure4.pdf;
 end
 

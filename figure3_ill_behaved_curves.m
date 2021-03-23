@@ -6,13 +6,14 @@
 close all;
 clear all;
 
-save_to_pdf = 0; % requires export_fig to be installed in export_fig
-% https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
+save_to_pdf = 1; % saves PDF files to figures dir
 
 use_panel = 0; % makes the fancy plot as per the paper
 % requires panel to be installed in directory panel-2.14
 % you can find it at 
 % https://nl.mathworks.com/matlabcentral/fileexchange/20003-panel
+% requires a Matlab account to download and install
+% so couldn't be automated, sorry :) 
 
 use_results_long = 1; % this script requires all result files
 % long = 0: little repitions, noisy learning curves (results_fast)
@@ -275,6 +276,6 @@ set(gcf,'Children',flipud(c));
 
 %%
 if save_to_pdf 
-    addpath('export_fig');
+    download_dependencies('export_fig');
     export_fig figures/figure3.pdf
 end

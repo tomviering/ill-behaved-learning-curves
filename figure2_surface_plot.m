@@ -5,8 +5,7 @@
 close all;
 clear all;
 
-save_to_pdf = 0; % requires export_fig to be installed in export_fig
-% https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
+save_to_pdf = 1; % saves PDF files to figures dir
 
 use_results_long = 1; % this script requires the results file 2_peaking.mat
 % long = 0: little repitions, noisy learning curves (results_fast)
@@ -178,7 +177,7 @@ set(gcf,'Position',[400,100,400+w,100+h]);
 %% save to pdf
 
 if (save_to_pdf == 1)
-    addpath('export_fig');
+    download_dependencies('export_fig');
     export_fig figures/figure2.pdf
 end
 

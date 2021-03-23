@@ -16,12 +16,14 @@ install_riskmt = (strcmp(to_install,'riskmt')) || install_all;
 install_gpml = (strcmp(to_install,'gpml')) || install_all;
 install_makingmt = (strcmp(to_install,'makingmt')) || install_all;
 install_author_results = (strcmp(to_install,'author_results')) || install_all;
+install_export_fig = strcmp(to_install,'export_fig') || install_all;
 
 prtools_installed = exist('prtools','dir');
 riskmt_installed = exist('RiskMonotonicity-master','dir');
 gpml_installed = (exist('gpml-matlab-v4.2-2018-06-11','dir'));
 makingmt_installed = (exist('monotone-master','dir'));
 author_results_installed = exist('results_fast','dir') && exist('results_long','dir');
+export_fig_installed = exist('export_fig-master'); 
 
 if (install_prtools)&&(prtools_installed)
     fprintf('prtools already downloaded and extracted.\n');
@@ -115,7 +117,7 @@ if install_makingmt&&~makingmt_installed
     
     addpath('monotone-master');
     fprintf('makingmt added to path.\n');
-    fprintf('done');
+    fprintf('done\n');
 end
 
 if install_author_results&&~author_results_installed
@@ -135,6 +137,28 @@ if install_author_results&&author_results_installed
     fprintf('assuming they are already installed, skipping...\n');
     
 end
+
+if install_export_fig && ~export_fig_installed
+    fprintf('downloading and extracting export_fig...\n');
+    
+    url_exportfig = 'https://github.com/altmany/export_fig/archive/refs/heads/master.zip';
+    unzip(url_exportfig);
+    
+    addpath('export_fig-master');
+    fprintf('export_fig added to path.\n');
+    fprintf('done\n');
+    
+end
+
+if install_export_fig && export_fig_installed
+    fprintf('export_fig already downloaded and extracted.\n');
+    addpath('export_fig-master');
+    fprintf('export_fig added to path.\n');
+    
+end
+
+
+    
     
     
 

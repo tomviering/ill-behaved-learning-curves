@@ -1,12 +1,11 @@
 close all;
 clear all;
 
-use_results_long = 1; % this script requires all result files
+use_results_long = 0; % this script requires all result files
 % long = 0: little repitions, noisy learning curves (results_fast)
 % long = 1: many repitions: smooth learning curves (results_long)
 
-save_to_png = 0; % requires export_fig to be installed in export_fig
-% https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig
+save_to_png = 1; % saves png files to figures directory
 
 %% Set result directory
 
@@ -30,7 +29,7 @@ addpath('7_perfect_prior');
 addpath('8_making_monotone');
 
 if save_to_png
-    addpath('export_fig');
+    download_dependencies('export_fig');
     M = '-m0.5'; % scale down by factor of 2
 end
 
