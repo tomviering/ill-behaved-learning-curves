@@ -20,7 +20,7 @@ git clone https://github.com/tomviering/ill-behaved-learning-curves.git
 ```
 download_dependencies('all')
 ``` 
-to download all additional dependencies for all experiments:
+to download all additional dependencies for all experiments (total 107mb). Other arguments are:
 - 'prtools': matlab pattern recognition toolbox - prtools.net (4 mb)
 - 'riskmt': risk monotonicity  - https://github.com/tomviering/RiskMonotonicity/ (20kb)
 - 'gpml': gaussian process toolbox - http://gaussianprocess.org/gpml/ (3mb) 
