@@ -7,16 +7,22 @@ function download_dependencies(to_install)
 % 'gpml': gaussian process toolbox - http://gaussianprocess.org/gpml/ (3mb) 
 % 'makingmt': making monotone IDA - https://github.com/tomviering/monotone/ (20mb)
 % 'author_results': downloads the author results for all experiments (80mb)
+% 'export_fig': https://github.com/altmany/export_fig for exporting figures (100kb)
 %
 % 'all': downloads everything
+% 'all_except_author_results': downloads everything except author results
 
-install_all = strcmp(to_install,'all');
+install_all = strcmp(to_install,'all') || strcmp(to_install,'all_except_author_results');
 install_prtools = strcmp(to_install,'prtools') || install_all;
 install_riskmt = (strcmp(to_install,'riskmt')) || install_all;
 install_gpml = (strcmp(to_install,'gpml')) || install_all;
 install_makingmt = (strcmp(to_install,'makingmt')) || install_all;
 install_author_results = (strcmp(to_install,'author_results')) || install_all;
 install_export_fig = strcmp(to_install,'export_fig') || install_all;
+
+if strcmp(to_install,'all_except_author_results')
+    install_author_results = 0;
+end
 
 prtools_installed = exist('prtools','dir');
 riskmt_installed = exist('RiskMonotonicity-master','dir');

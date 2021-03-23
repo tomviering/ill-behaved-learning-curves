@@ -20,11 +20,17 @@ git clone https://github.com/tomviering/ill-behaved-learning-curves.git
 ```
 download_dependencies('all')
 ``` 
-to download all additional dependencies for all experiments and to download the author provided results. 
+to download all additional dependencies for all experiments:
+- 'prtools': matlab pattern recognition toolbox - prtools.net (4 mb)
+- 'riskmt': risk monotonicity  - https://github.com/tomviering/RiskMonotonicity/ (20kb)
+- 'gpml': gaussian process toolbox - http://gaussianprocess.org/gpml/ (3mb) 
+- 'makingmt': making monotone IDA - https://github.com/tomviering/monotone/ (20mb)
+- 'author_results': downloads the author results for all experiments (80mb)
+- 'export_fig': for exporting figures - https://github.com/altmany/export_fig (100kb)
+- 'all': downloads everything (107mb)
+- 'all_except_author_results': downloads everything except author results (27mb)
 
-3. **Optional:** download and extract [export_fig](https://nl.mathworks.com/matlabcentral/fileexchange/23629-export_fig) in the directory 'export_fig' (only required for exporting figures).
-
-4. **Optional:** download and extract [panel-2.14](https://nl.mathworks.com/matlabcentral/fileexchange/20003-panel) in the directory 'panel-2.14' (for pretty version of Fig 3). 
+3. **Optional:** download and extract [panel-2.14](https://nl.mathworks.com/matlabcentral/fileexchange/20003-panel) in the directory 'panel-2.14' (for pretty version of Fig 3). Matlab account required.  
 
 # Running the experiments
 
