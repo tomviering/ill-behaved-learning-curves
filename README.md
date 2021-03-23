@@ -26,7 +26,7 @@ to download all additional dependencies for all experiments (total 107mb).
 
 ## Dependencies
 
-The function ```download_dependencies''' takes a single string argument that indicates what should be downloaded, extracted, and added to the Matlab path. Options are:
+The function `download_dependencies` takes a single string argument that indicates what should be downloaded, extracted, and added to the Matlab path. Options are:
 
 - 'prtools': matlab pattern recognition toolbox - prtools.net (4 mb)
 - 'riskmt': risk monotonicity  - https://github.com/tomviering/RiskMonotonicity/ (20kb)
