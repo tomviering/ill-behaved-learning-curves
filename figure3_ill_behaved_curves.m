@@ -43,6 +43,7 @@ addpath('5_GP_regression');
 addpath('6_bayesian_regression');
 addpath('7_perfect_prior');
 addpath('8_making_monotone');
+addpath('RiskMonotonicity-master');
 
 addpath('helpers'); 
 
