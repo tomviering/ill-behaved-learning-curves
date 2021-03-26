@@ -25,9 +25,9 @@ else
     rmpath('results_long');  
 end
 
-load('2_peaking.mat','error');
+load('2_peaking.mat','error_exact');
 %load('2_peaking.mat','error','error_exact');
-E = squeeze(mean(error));
+E = squeeze(mean(error_exact));
 % E is the error matrix that adheres to
 % E(ind_d,ind_n), where ind_d = d, and ind_n*2 = n
 
