@@ -178,6 +178,6 @@ set(gcf,'Position',[400,100,400+w,100+h]);
 
 if (save_to_pdf == 1)
     download_dependencies('export_fig');
-    export_fig figures/figure2.pdf
+    export_fig('figures/figure2.pdf','-c[65,90,50,50]')
 end
 
