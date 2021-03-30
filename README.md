@@ -91,6 +91,19 @@ Visualizes the distribution for the dipping learning curve.
 
 If you run into any issues, you can email me: t.j.my_surname_here AT tudelft DOT nl
 
+# References
+
+The learning problems given in this repository are not all novel, instead, we aimed to provide accesible implementations for all of them. Below are the respective references and additional details that describe the experiments. 
+
+1. phase transition: this is a novel learning problem, described at the end of section 6.1 in our paper.
+2. peaking: this learning problem has a long history, please see M. Loog, T. Viering, A. Mey, J. H. Krijthe, and D. M. Tax, “A brief prehistory of double descent,” PNAS, vol. 117, no. 20, pp. 10 625–10 626, 2020. 
+3. dipping: this learning problem was inspired by Marco Loog and Robert P W Duin. The dipping phenomenon. In S+SSPR, pages 310–317, Hiroshima, Japan, 2012. it is slightly different however, the actual learning problem is given by Figure 4 in our paper.
+4. monotonicity: the learning problem was given by Marco Loog, Tom Viering, and Alexander Mey. Minimizers of the empirical risk and risk monotonicity. In NeurISP, pages 7478–7487, 2019.
+5. GP regression: this is the learning problem where the student uses the correct noise level, but the wrong sigma, where data is uniform on the unit hypercube, originating from Peter Sollich. Gaussian Process Regression with Mismatched Models. In NeurIPS, pages 519–526, 2002.
+6. Bayesian regression. this is the learning problem with the fourier basis, with the non-hierarchical bayesian regression model, given by Peter Grünwald and Thijs van Ommen. Inconsistency of bayesian inference for misspecified linear models, and a proposal for repairing it. Bayesian Analysis, 12(4):1069–1103, 2017.
+7. perfect prior. this learning problem was discussed the paragraph 'Decreasing risk!?' in Peter D. Grünwald and Wojciech Kotłowski. Bounds on individual risk for log-loss predictors. JMLR, 19:813–816, 2011.
+8. making monotone. this experiment is taken from Tom Julian Viering, Alexander Mey, and Marco Loog. Making learners (more) monotone. In IDA, pages 535–547. Springer, 2020.
+
 # License
 
 MIT License
